@@ -9,7 +9,7 @@ SortingSystem<T>::SortingSystem(int n) {
 
     size = n;
     data = new T[size];
- 
+
 
 
     ifstream inputfile("input.txt");
@@ -17,7 +17,10 @@ SortingSystem<T>::SortingSystem(int n) {
         cout << "error can not open your input file" << endl;
         exit(1);
     }
+
     else {
+        string dummy;
+        inputfile >> dummy;
 
         cout << "reading array from your input file" << endl;
         for (int i = 0; i < size; i++) {
@@ -58,7 +61,7 @@ void SortingSystem<T>::showMenu() {
         cout << "6.Quick sort" << endl;
         cout << "7.Bucket sort" << endl;
         cout << "8.Radix sort" << endl;
-		cout << "9.Count sort" << endl;
+        cout << "9.Count sort" << endl;
     }
     cin >> choice;
 }
@@ -95,7 +98,7 @@ void SortingSystem<T>::measureSortingTime() {
 
     case 5:
 
-        mergeSort(0, size-1);
+        mergeSort(0, size - 1);
         break;
     case 6:
 
@@ -103,7 +106,7 @@ void SortingSystem<T>::measureSortingTime() {
         break;
 
     case 7:
-        cout << "Type is integral: " << std::is_integral_v<T> << endl; 
+        cout << "Type is integral: " << std::is_integral_v<T> << endl;
         if constexpr (std::is_integral_v<T>) {
             bucketSort();
         }
@@ -112,7 +115,7 @@ void SortingSystem<T>::measureSortingTime() {
         }
         break;
     case 8:
-        cout << "Type is integral: " << std::is_integral_v<T> << endl; 
+        cout << "Type is integral: " << std::is_integral_v<T> << endl;
         if constexpr (std::is_integral_v<T>) {
             radixSort();
         }
@@ -122,7 +125,7 @@ void SortingSystem<T>::measureSortingTime() {
         break;
 
     case 9:
-        cout << "Type is integral: " << std::is_integral_v<T> << endl; 
+        cout << "Type is integral: " << std::is_integral_v<T> << endl;
         if constexpr (std::is_integral_v<T>) {
             countSort();
         }

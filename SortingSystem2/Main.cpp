@@ -1,27 +1,44 @@
 #include<iostream>
 #include "SortingSystem.h"
+#include"fstream"
 int type = -1;
 using namespace std;
+bool isInteger(const string& str) {
+    for (char c : str) {
+        if (!isdigit(c) && c != '-') return false;
+    }
+    return true;
+}
 int main() {
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "choose the type of data in array:\n1-int \n2-string\n----->";
-    cin >> type;
+    string arrayType;
+    ifstream inputFile("input.txt");
+    if (!inputFile) {
+        cerr << "Error: Could not open input.txt!" << endl;
+        return 1; 
+    }
+    inputFile >> n; 
+    inputFile >> arrayType;
+    inputFile.close(); 
+ /*   cout << "choose the type of data in array:\n1-int \n2-string\n----->";
+    cin >> type;*/
     bool sortMore = true;
     int moresort;
     while (sortMore)
     {
-        if (type == 1)
+        if (isInteger(arrayType))
         {
+            type = 1;
             SortingSystem<int> sorter(n);
             sorter.showMenu();
             sorter.measureSortingTime();
             cout << "Sorted Data: ";
             sorter.displayData();
+
         }
-        else if (type == 2)
+        else if (!isInteger(arrayType))
         {
+            type = 2;
             SortingSystem<string> sorter(n);
             sorter.showMenu();
             sorter.measureSortingTime();
