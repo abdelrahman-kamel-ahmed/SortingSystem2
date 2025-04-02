@@ -99,7 +99,7 @@ void SortingSystem<T>::measureSortingTime() {
         break;
     case 6:
 
-        quickSort(0, 6);
+        quickSort(0, size);
         break;
 
     case 7:
