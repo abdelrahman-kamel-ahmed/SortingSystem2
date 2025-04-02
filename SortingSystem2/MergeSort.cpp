@@ -23,7 +23,7 @@ void SortingSystem<T>::merge(int left, int mid, int right) {
     int rr = 0;
     int k = left;
 
-    while (ll < lsize && rr < rsize) {
+    while (ll < lsize && rr < rsize && k<right) {
         if (larr[ll] <= rarr[rr]) {
             data[k] = larr[ll];
             ll++;

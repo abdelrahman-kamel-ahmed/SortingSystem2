@@ -95,7 +95,7 @@ void SortingSystem<T>::measureSortingTime() {
 
     case 5:
 
-        mergeSort(0, 6);
+        mergeSort(0, size-1);
         break;
     case 6:
 
